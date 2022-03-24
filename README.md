@@ -1,5 +1,5 @@
 # ffmpeg_mp42h264
-ffmpeg.exe를 사용해서 mp4 파일들을 h264로 변경
+ffmpeg.exe를 사용해서 영상 파일들의 코덱을 h264로 변경
 
 ## 사용법
 1. ffmpeg 다운로드 (https://ffmpeg.org/download.html)
