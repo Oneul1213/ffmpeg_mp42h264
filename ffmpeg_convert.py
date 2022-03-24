@@ -1,9 +1,15 @@
-import os
+import os, sys
 
-mp4_files = os.popen('dir/b *.mp4').read().split()
-mp4_files = [path[:-4] for path in mp4_files]
-# print(mp4_files)
-for fileName in mp4_files:
-    print(f'##### current file : {fileName}.mp4 #####' )
+ext = ""
+if len(sys.argv) == 2:
+    ext = sys.argv[1]
+else:
+    ext = "mp4"
+
+video_files = os.popen(f'dir/b *.{ext}').read().split()
+video_files = [path[:-4] for path in video_files]
+# print(video_files)
+for fileName in video_files:
+    print(f"##### current file : {fileName}.{ext} #####" )
     print("##### convert to h264 #####")
-    os.system(f'ffmpeg -i "{fileName}.mp4" -c:v libx264 -c:a copy -preset ultrafast -crf 18 "{fileName}_h264.mp4"')
+    os.system(f'ffmpeg -i "{fileName}.{ext}" -c:v libx264 -c:a copy -preset ultrafast -crf 18 "{fileName}_h264.mp4"')
